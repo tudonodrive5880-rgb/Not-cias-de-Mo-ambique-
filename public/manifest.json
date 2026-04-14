@@ -1,0 +1,21 @@
+{
+  "name": "Dicas Fácil MZ",
+  "short_name": "Dicas MZ",
+  "description": "O Seu Portal de Notícias de Moçambique",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#009639",
+  "icons": [
+    {
+      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiLxahdSVwkEcfxn2tm2g9KnLL3U9-zCohLKkhK3aeHN-abjMe8d8LpXL59K3P_MteDplIbixtwRCwiRMKgChDmeGhCEL7ehWn1yV3sXaSog-bBR0ZQl6DcC7prxc0SEQnZ35907RN1z5CjKkf1CvlZ866iv6yBhrp4z9xW9Ilv8NeXEGJaEuF_IukgufJq/s192-c/square-image.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiLxahdSVwkEcfxn2tm2g9KnLL3U9-zCohLKkhK3aeHN-abjMe8d8LpXL59K3P_MteDplIbixtwRCwiRMKgChDmeGhCEL7ehWn1yV3sXaSog-bBR0ZQl6DcC7prxc0SEQnZ35907RN1z5CjKkf1CvlZ866iv6yBhrp4z9xW9Ilv8NeXEGJaEuF_IukgufJq/s512-c/square-image.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

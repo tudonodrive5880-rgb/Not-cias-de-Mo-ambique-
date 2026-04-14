@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#009639" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>Dicas Fácil MZ</title>
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" type="image/png" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiLxahdSVwkEcfxn2tm2g9KnLL3U9-zCohLKkhK3aeHN-abjMe8d8LpXL59K3P_MteDplIbixtwRCwiRMKgChDmeGhCEL7ehWn1yV3sXaSog-bBR0ZQl6DcC7prxc0SEQnZ35907RN1z5CjKkf1CvlZ866iv6yBhrp4z9xW9Ilv8NeXEGJaEuF_IukgufJq/s72-c/square-image.png" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(err => {
+            console.log('ServiceWorker registration failed: ', err);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
+
