@@ -20,13 +20,13 @@ export default function App() {
   return (
     <>
       <AnimatePresence mode="wait">
-        {showSplash && <SplashScreen key="splash" onComplete={() => setShowSplash(false)} />}
+        {showSplash && <SplashScreen onComplete={() => setShowSplash(false)} />}
       </AnimatePresence>
       
       {!showSplash && (
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Layout />}>
+            <Route path="/" element={<Layout />}> 
               <Route index element={<Home />} />
               <Route path="article/:id" element={<Article />} />
               <Route path="categories" element={<Categories />} />
@@ -35,7 +35,7 @@ export default function App() {
             </Route>
           </Routes>
         </BrowserRouter>
-      )}
+      )} 
     </>
   );
 }
