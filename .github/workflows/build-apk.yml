@@ -1,1 +1,24 @@
-name: Build APK\n\non: push:\n  branches:\n    - main\n\njobs:\n  build:\n    runs-on: ubuntu-latest\n\n    steps:\n      - name: Checkout repository\n        uses: actions/checkout@v2\n\n      - name: Setup Node.js\n        uses: actions/setup-node@v2\n        with:\n          node-version: '16'\n\n      - name: Install dependencies\n        run: npm install\n\n      - name: Build React app with Vite\n        run: npm run build\n\n      - name: Setup JDK\n        uses: actions/setup-java@v2\n        with:\n          java-version: '11'\n\n      - name: Install Android SDK\n        run: |\n          wget -q https://dl.google.com/android/repository/commandlinetools-linux-6858069_latest.zip\n          unzip commandlinetools-linux-6858069_latest.zip -d $ANDROID_HOME/cmdline-tools\n          yes | $ANDROID_HOME/cmdline-tools/bin/sdkmanager --sdk_root=$ANDROID_HOME --install "platform-tools" "platforms;android-30"\n\n      - name: Build APK with Capacitor\n        run: |\n          cd android\n          ./gradlew assembleDebug\n\n      - name: Upload APK as artifact\n        uses: actions/upload-artifact@v2\n        with:\n          name: app-debug.apk\n          path: android/app/build/outputs/apk/debug/app-debug.apk\n
+name: Build APK and Release
+
+on:
+  push:
+    tags:
+      - 'v*.*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: '11'
+      - name: Build APK
+        run: ./gradlew assembleRelease
+      - name: Upload APK as Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: app/build/outputs/apk/release/app-release.apk
+          tag: ${{ github.ref }}
